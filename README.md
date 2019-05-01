@@ -5,13 +5,13 @@ This is your ultimate docker container for running minecraft 1.7.10+ in any form
 
 
 ## tl;dr
-Go straight to the sample docker-compose file and have fun :)
 
-Check your desired server software is compatible with 1.7.10+
-
-Dont forget to accept the eula and configure everything, including the memory limit!
-
-The port of your server software must listen on port 25565, this is the default.
+1. Check your desired server software is compatible with 1.7.10+
+2. Install docker on your host: [(Ref)](https://docs.docker.com/install/)
+3. Build your dockler image: [(Ref)](https://docs.docker.com/engine/reference/commandline/build/)
+2. Dont forget to accept the eula and configure everything, including the memory limit!
+3. The port of your server software must listen on port 25565, this is the default.
+4. Copy paste the sample docker-compose file
 
 
 ## How does it work?
@@ -64,5 +64,4 @@ services:
      - ./minecraft:/srv/mcsrvod
      # we dont want to waste our servers resources ;)
     mem_limit: 1200M
-
-```
+````
