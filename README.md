@@ -11,18 +11,16 @@ This is your ultimate docker container for running minecraft 1.7.10+ in any form
 
 1. Check your desired server software is compatible with 1.7.10+
 2. Install docker on your host: [(Ref)](https://docs.docker.com/install/)
-3. Build your dockler image: [(Ref)](https://docs.docker.com/engine/reference/commandline/build/)
-2. Dont forget to accept the eula and configure everything, including the memory limit!
-3. The port of your server software must listen on port 25565, this is the default.
-4. Copy paste the sample docker-compose file
+3. Dont forget to accept the eula and configure everything, including the memory limit!
+4. The port of your server software must listen on port 25565, this is the default.
+5. Copy paste the sample docker-compose file
 
 
 ## How does it work?
-You will need docker installed and knowledge on how to build an docker image, till i create one on the docker hub ;)
+Mount your server folder unter `/srv/mcsrvod/` and rename your jar file to `server.jar`.
 
-Build the image, mount your server folder unter `/srv/mcsrvod/` and rename your jar file to `server.jar`.
+The container will start the attached jar file when an connection to port 3000 is etablished. This is the public port for minecraft, you can change the outside mapping to whatever you like.
 
-The container will start the attached jar file when an connection to port 3000 is etablished. This is the public port for minecraft, you can change the mapping to whatever you like.
 
 ## Known limitations
 - This docker image is only suitable for minecraft 1.7.10+
@@ -51,7 +49,7 @@ The server may need some time to completely start, till that you will see an lon
 version: '2.4'
 services:
   hobbyMinecraftServer:
-    image: mcsrvodLocalName
+    image: timoreymann/mcsrvod:latest
     restart: always
     ports:
      # map to default port
