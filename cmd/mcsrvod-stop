@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PLAYER_COUNT=$(mcsrvod-playercount 2>/dev/null)
+
+if [ "$PLAYER_COUNT" = "0" ]
+then
+    echo "No one online, lets go and kill it!"
+    screen -S minecraft -p 0 -X stuff $'\003'
+else
+    echo 'There are currently users online, dont kill it!'
+fi

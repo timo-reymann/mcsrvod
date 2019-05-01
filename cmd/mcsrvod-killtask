@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while [ 1  ]
+do
+    # Wait for kill interval in seconds
+    sleep $KILL_INTERVAL
+    echo "Trying to kill server ..."
+    # Run stop command
+    mcsrvod-stop
+done;

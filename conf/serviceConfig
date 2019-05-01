@@ -1,0 +1,12 @@
+service mcsrvod
+{
+  type = UNLISTED
+  socket_type = stream
+  protocol = tcp
+  wait = no
+  user = root
+  group = root
+  server = /usr/bin/mcsrvod-start
+  port = 3000 
+  disable = no
+}

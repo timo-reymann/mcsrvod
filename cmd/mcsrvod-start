@@ -1,0 +1,28 @@
+#!/bin/bash
+JAR_FILE=server.jar
+JAVA_OPTS=$(cat /var/JAVA_OPTS 2>/dev/null)
+SERVER_OPTS=$(cat cat /var/SERVER_OPTS 2>/dev/null)
+RUN="java $JAVA_OPTS  -jar /srv/mcsrvod/$JAR_FILE $SERVER_OPTS"
+
+# Enter server directory
+cd /srv/mcsrvod
+
+# Check that no process is running with the jar
+if ! pgrep -f "$JAR_FILE" > /dev/null
+then
+    echo "Starting with command line: ${RUN} ..."
+    screen -dmS minecraft bash -c "$RUN"
+fi
+
+# Try to guess port and use 25565 as fallback
+PORT=$(sed -n 's/^server-ports*=s*([0-9]*)s*$/1/p' server.properties 2>/dev/null)
+EFF_PORT="${PORT:-25565}"
+
+# Wait for server to start up
+while ! nc -z 127.0.0.1 $EFF_PORT
+do
+    sleep 1
+done
+
+# Pipe minecraft server through
+exec nc 127.0.0.1 $EFF_PORT
