@@ -1,7 +1,7 @@
 mcsrvod - Minecraft Server on Demand
 ====================================
 
-[![Build Status](https://jenkins.timo-reymann.de/buildStatus/icon?job=TR-GitHub%2Fmcsrvod%2Fmaster)](https://jenkins.timo-reymann.de/job/TR-GitHub/job/mcsrvod/job/master/)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/timoreymann/mcsrvod)
 
 ## What is this?
 This is your ultimate docker container for running minecraft 1.7.10+ in any forms available, not wasting your resources.
