@@ -1,6 +1,7 @@
 mcsrvod - Minecraft Server on Demand
-====================================
+===
 
+![GitHub Release](https://img.shields.io/github/v/tag/timo-reymann/mcsrvod.svg)
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/timoreymann/mcsrvod)
 
 ## What is this?
